@@ -1,0 +1,6 @@
+{
+  "appId": "bg.anatomy.atlas",
+  "appName": "Анатомичен Атлас 3D",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
