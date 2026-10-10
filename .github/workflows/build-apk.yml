@@ -49,8 +49,16 @@ jobs:
       - name: Print Gradle Log on Failure
         if: failure()
         run: |
-          echo "=== LAST 150 LINES OF GRADLE LOG ==="
-          tail -n 150 gradle_output.log
+          echo "=== LAST 200 LINES OF GRADLE LOG ==="
+          tail -n 200 gradle_output.log || true
+
+      - name: Upload Gradle Build Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-build-log
+          path: gradle_output.log
+          if-no-files-found: ignore
 
       - name: Prepare APK file
         run: |
